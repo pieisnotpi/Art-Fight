@@ -6,7 +6,7 @@ Examples of generated prompts:
 * The kind've thing only a flabbergasted dolphin would invent
 * A drunk horse fighting a stoned piece of toast
 * A frankly far too ecstatic child
-* A handsome dolphin fighting a tiny mattress
-* An angsty TV show hosted by a dolphin
+* If all children were replaced by sharks
+* A pirate ship made solely out of lawn chairs and couches
 
-And many, many more (1,219,477 more, to be exact)
+And many, many more (25,950 more, to be exact)

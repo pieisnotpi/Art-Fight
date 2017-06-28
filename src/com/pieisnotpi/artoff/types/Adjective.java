@@ -6,11 +6,11 @@ public class Adjective extends Modifier
 
     public Adjective(String adjective)
     {
-        prefix = (int) adjective.charAt(2) - 48;
+        prefix = (int) adjective.charAt(2) - (int) '0';
         this.adjective = adjective.substring(4);
     }
 
-    public String getString()
+    public String getString(boolean isPlural)
     {
         return adjective;
     }

@@ -7,6 +7,7 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -21,6 +22,7 @@ import java.util.Random;
 
 public class Main extends Application
 {
+    private static final boolean printPossible = false;
     private static final List<Adjective> ADJECTIVES = new ArrayList<>();
     private static final List<Noun> NOUNS = new ArrayList<>();
     private static final List<Prompt> PROMPTS = new ArrayList<>();
@@ -42,6 +44,18 @@ public class Main extends Application
         strings = OptionsHandler.getStrings("options/prompts.txt", Defaults.prompts);
         for(String string : strings) PROMPTS.add(new Prompt(string));
         PREFIXES = OptionsHandler.getStrings("options/prefixes.txt", Defaults.prefixes);
+
+        if(printPossible)
+        {
+            int possible = 0, nouns = NOUNS.size(), adjectives = ADJECTIVES.size();
+            for(Prompt prompt : PROMPTS)
+            {
+                if(prompt.getNounCount() == 0) possible += adjectives*prompt.getAdjCount();
+                else if(prompt.getAdjCount() == 0) possible += nouns*prompt.getNounCount();
+                else possible += prompt.getNounCount()*nouns*prompt.getAdjCount()*adjectives;
+            }
+            System.out.println(possible);
+        }
 
         launch();
     }
@@ -78,6 +92,14 @@ public class Main extends Application
         pane.setPadding(new Insets(32, 64, 32, 64));
         pane.getChildren().addAll(promptBox, generateBox);
         pane.requestFocus();
+        pane.setOnKeyPressed((ke) ->
+        {
+            if(ke.getCode().equals(KeyCode.ENTER))
+            {
+                if(ke.isAltDown()) stage.setFullScreen(!stage.isFullScreen());
+                else generateButton.fire();
+            }
+        });
 
         stage.setWidth(640);
         stage.setHeight(540);

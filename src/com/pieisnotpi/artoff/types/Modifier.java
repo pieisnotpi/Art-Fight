@@ -9,5 +9,5 @@ public abstract class Modifier
         return prefix;
     }
 
-    public abstract String getString();
+    public abstract String getString(boolean isPlural);
 }

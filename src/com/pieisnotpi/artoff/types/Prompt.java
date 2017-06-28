@@ -20,14 +20,14 @@ public class Prompt
         {
             if(lower.startsWith("noun", i + 1))
             {
-                int end = prompt.indexOf(']', i), pi = prompt.indexOf(",p", i);
-                modNouns.add(new ModifierIndex(prompt.substring(i, end + 1), Character.isUpperCase(prompt.charAt(i + 1)), (pi > 0 && pi < end)));
+                int end = prompt.indexOf(']', i), preI = prompt.indexOf(",pre", i), plurI = prompt.indexOf(",plural");
+                modNouns.add(new ModifierIndex(prompt.substring(i, end + 1), Character.isUpperCase(prompt.charAt(i + 1)), (preI > 0 && preI < end), (plurI > 0 && plurI < end)));
                 i+=6;
             }
             else if(lower.startsWith("adj", i + 1))
             {
-                int end = prompt.indexOf(']', i), pi = prompt.indexOf(",p", i);
-                modAdjs.add(new ModifierIndex(prompt.substring(i, end + 1), Character.isUpperCase(prompt.charAt(i + 1)), (pi > 0 && pi < end)));
+                int end = prompt.indexOf(']', i), preI = prompt.indexOf(",pre", i);
+                modAdjs.add(new ModifierIndex(prompt.substring(i, end + 1), Character.isUpperCase(prompt.charAt(i + 1)), (preI > 0 && preI < end), false));
                 i+=5;
             }
         }
@@ -39,8 +39,6 @@ public class Prompt
 
         for(int i = 0; i < nouns.size(); i++) temp = modNouns.get(i).trim(temp, nouns.get(i));
         for(int i = 0; i < adjectives.size(); i++) temp = modAdjs.get(i).trim(temp, adjectives.get(i));
-        /*temp = replaceAll(temp, NOUN, nouns);
-        temp = replaceAll(temp, ADJ, adjectives);*/
 
         return temp;
     }
@@ -53,18 +51,5 @@ public class Prompt
     public int getAdjCount()
     {
         return modAdjs.size();
-    }
-
-    private String replaceAll(String original, String target, List<String> replacements)
-    {
-        int i, j = 0, l = target.length();
-        String temp = original;
-
-        while((i = temp.indexOf(target)) != -1)
-        {
-
-        }
-
-        return temp;
     }
 }

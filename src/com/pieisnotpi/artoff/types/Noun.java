@@ -2,16 +2,22 @@ package com.pieisnotpi.artoff.types;
 
 public class Noun extends Modifier
 {
-    private String noun;
+    private String noun, nounPlural;
 
-    public Noun(String noun)
+    public Noun(String n)
     {
-        prefix = (int) noun.charAt(2) - 48;
-        this.noun = noun.substring(4);
+        prefix = (int) n.charAt(2) - (int) '0';
+        int i = n.indexOf(',');
+        if(i > 0)
+        {
+            noun = n.substring(4, i);
+            nounPlural = n.substring(i + 1);
+        }
+        else noun = nounPlural = n.substring(4);
     }
 
-    public String getString()
+    public String getString(boolean isPlural)
     {
-        return noun;
+        return isPlural ? nounPlural : noun;
     }
 }

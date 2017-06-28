@@ -5,9 +5,9 @@ public class Defaults
     public static final String
         adjectives =
             "#COMMENTS always start with a '#'\n" +
-            "#Each adjective contains a prefix [p(number)]\n" +
-            "#This number refers to the prefixes in the prefixes.txt file, with '0' being the first entry\n" +
-            "#Other than that, adjectives may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
+            "#ADJECTIVES contain a prefix [p(number)]\n" +
+            "#NUMBER refers to the prefixes in the prefixes.txt file, with '0' being the first entry\n" +
+            "#OTHERWISE, adjectives may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
             "[p0]giant\n" +
             "[p0]tiny\n" +
             "[p1]incognito\n" +
@@ -39,74 +39,86 @@ public class Defaults
             "[p0]distracted\n" +
             "[p0]self-conscious\n" +
             "[p1]ecstatic\n" +
-            "[p0]fancy\n";
+            "[p0]fancy\n" +
+            "[p1]entirely normal\n" +
+            "[p0]violent";
 
     public static final String
         nouns =
             "#COMMENTS always start with a '#'\n" +
-            "#Each noun contains a prefix [p(number)]\n" +
-            "#This number refers to the prefixes in the prefixes.txt file, with '0' being the first entry\n" +
-            "#Other than that, nouns may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
-            "[p3]Gary Busey\n" +
-            "[p0]dog\n" +
-            "[p0]Waffle House\n" +
-            "[p0]cat\n" +
-            "[p0]mattress\n" +
-            "[p0]cloud\n" +
-            "[p0]horse\n" +
-            "[p3]Jeff\n" +
-            "[p0]house\n" +
-            "[p0]hand\n" +
-            "[p1]alien\n" +
-            "[p0]computer\n" +
-            "[p0]piece of paper\n" +
-            "[p0]lamp\n" +
-            "[p0]pirate ship\n" +
-            "[p0]dolphin\n" +
-            "[p2]Hulk\n" +
-            "[p0]child\n" +
-            "[p0]butt\n" +
-            "[p0]narwhal\n" +
-            "[p3]John Cena\n" +
-            "[p0]car\n" +
-            "[p0]ghost\n" +
-            "[p0]unicorn\n" +
-            "[p3]Kermit\n" +
-            "[p0]pig\n" +
-            "[p0]flying spaghetti monster\n" +
-            "[p0]shark\n" +
-            "[p0]slug\n" +
-            "[p0]mountain\n" +
-            "[p0]couch\n" +
-            "[p0]clown\n" +
-            "[p0]piece of toast\n" +
-            "[p1]apple\n";
+            "#NOUNS contain a prefix [p(number)]\n" +
+            "#NUMBER refers to the prefixes in the prefixes.txt file, with '0' being the first entry\n" +
+            "#NOUNS should be given plural versions, specified with a comma followed by the plural\n" +
+            "#SYNTAX appears as [p(number)](singular noun),(plural noun)\n" +
+            "#EXAMPLE: [p0]dog,dogs = prefix: a, singular: dog, plural: dogs\n" +
+            "#OTHERWISE, nouns may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
+            "[p3]Gary Busey,Gary Buseys\n" +
+            "[p0]dog,dogs\n" +
+            "[p0]Waffle House,Waffle Houses\n" +
+            "[p0]cat,cats\n" +
+            "[p0]mattress,mattresses\n" +
+            "[p0]cloud,clouds\n" +
+            "[p0]horse,horses\n" +
+            "[p3]Jeff,Jeffs\n" +
+            "[p0]house,houses\n" +
+            "[p0]hand,hands\n" +
+            "[p1]alien,aliens\n" +
+            "[p0]computer,computers\n" +
+            "[p0]piece of paper,pieces of paper\n" +
+            "[p0]lamp,lamps\n" +
+            "[p0]pirate ship,pirate ships\n" +
+            "[p0]dolphin,dolphins\n" +
+            "[p2]Hulk,Hulks\n" +
+            "[p0]child,children\n" +
+            "[p0]butt,butts\n" +
+            "[p0]narwhal,narwhals\n" +
+            "[p3]John Cena,John Cenas\n" +
+            "[p0]car,cars\n" +
+            "[p0]ghost,ghosts\n" +
+            "[p0]unicorn,unicorns\n" +
+            "[p3]Kermit,Kermits\n" +
+            "[p0]pig,pigs\n" +
+            "[p0]flying spaghetti monster,flying spaghetti monsters\n" +
+            "[p0]shark,sharks\n" +
+            "[p0]slug,slugs\n" +
+            "[p0]mountain,mountains\n" +
+            "[p0]couch,couches\n" +
+            "[p0]clown,clowns\n" +
+            "[p0]piece of toast,pieces of toast\n" +
+            "[p0]lawn chair,lawn chairs\n" +
+            "[p0]golf cart,golf carts\n" +
+            "[p0]doctor,doctors\n";
 
     public static final String
         prompts =
             "#COMMENTS always start with a '#'\n" +
             "#NOUNS to be randomized are indicated with '[noun]', adjectives with '[adj]'\n" +
-            "#NOUNS or ADJECTIVES may be given the ',p' suffix to add prefixes (as specified in prefixes.txt) to nouns/adjectives\n" +
-            "#This appears as '[noun,p]' or '[adj,p]'\n" +
-            "#EXAMPLE: [noun] = flying spaghetti monster, [noun,p] = a flying spaghetti monster\n" +
-            "#EXAMPLE 2: [noun] = Hulk, [noun,p] = the Hulk" +
-            "#Capitalizing 'noun' or 'adj' enables forced capitalization within prompts\n" +
-            "#Example: [noun] = flying spaghetti monster, [Noun] = Flying Spaghetti Monster\n" +
-            "#Other than that, prompts may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
+            "#NOUNS or ADJECTIVES can be given prefixes (as specified in prefixes.txt) by adding ',pre' to noun/adjective indicators\n" +
+            "#SYNTAX appears as '[noun,pre]' or '[adj,pre]'\n" +
+            "#EXAMPLE: [noun] = flying spaghetti monster, [noun,pre] = a flying spaghetti monster\n" +
+            "#EXAMPLE 2: [noun] = Hulk, [noun,pre] = the Hulk\n" +
+            "#CAPITALIZING 'noun' or 'adj' enables forced capitalization within prompts\n" +
+            "#EXAMPLE: [noun] = flying spaghetti monster, [Noun] = Flying Spaghetti Monster\n" +
+            "#NOUNS can be made plural by adding ',plural' to a noun indicator\n" +
+            "#SYNTAX appears as '[noun,plural]'\n" +
+            "#EXAMPLE: [noun] = piece of toast, [noun,plural] = pieces of toast\n" +
+            "#OTHERWISE, prompts may be added and removed as pleased. Improper setup may cause crashes or improper grammar, so make backups!\n" +
             "A frankly far too [adj] [noun]\n" +
-            "[noun,p] riding [adj,p] [noun]\n" +
-            "[noun,p]'s [adj] [noun]\n" +
-            "[adj,p] [noun] fighting [adj,p] [noun]\n" +
-            "The lovechild between [noun,p] and [noun,p]\n" +
-            "If [noun,p] was never [adj]\n" +
-            "[noun,p], but instead of being [adj], they're always [adj]\n" +
-            "If [noun,p] and [noun,p] were [adj] friends\n" +
-            "[adj,p] TV show hosted by [noun,p]\n" +
+            "[noun,pre] riding [adj,pre] [noun]\n" +
+            "[noun,pre]'s [adj] [noun]\n" +
+            "[adj,pre] [noun] fighting [adj,pre] [noun]\n" +
+            "The lovechild between [noun,pre] and [noun,pre]\n" +
+            "If [noun,pre] was never [adj]\n" +
+            "[noun,pre], but instead of being [adj], they're always [adj]\n" +
+            "If [noun,pre] and [noun,pre] were [adj] friends\n" +
+            "[adj,pre] TV show hosted by [noun,pre]\n" +
             "The next hit app: [Adj] [Noun]\n" +
             "The newest pageant: The Annual [Adj] [Noun] Pageant\n" +
-            "[adj,p], [adj], [noun]\n" +
-            "The kind've thing only [adj,p] [noun] would invent\n" +
-            "[noun,p] that's always [adj]\n";
+            "[adj,pre] and [adj] [noun]\n" +
+            "The kind've thing only [adj,pre] [noun] would invent\n" +
+            "[noun,pre] that's always [adj]\n" +
+            "[noun,pre] made solely out of [noun,plural] and [noun,plural]\n" +
+            "If all [noun,plural] were replaced by [noun,plural]\n";
 
     public static final String
         prefixes =
