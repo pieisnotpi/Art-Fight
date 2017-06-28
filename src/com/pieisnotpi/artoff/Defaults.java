@@ -1,5 +1,6 @@
 package com.pieisnotpi.artoff;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class Defaults
 {
     public static final String
@@ -42,6 +43,7 @@ public class Defaults
             "[p0]fancy\n" +
             "[p1]entirely normal\n" +
             "[p0]violent";
+
 
     public static final String
         nouns =
@@ -109,7 +111,7 @@ public class Defaults
             "[adj,pre] [noun] fighting [adj,pre] [noun]\n" +
             "The lovechild between [noun,pre] and [noun,pre]\n" +
             "If [noun,pre] was never [adj]\n" +
-            "[noun,pre], but instead of being [adj], they're always [adj]\n" +
+            "[noun,pre], but whenever they should be [adj], they're [adj] instead\n" +
             "If [noun,pre] and [noun,pre] were [adj] friends\n" +
             "[adj,pre] TV show hosted by [noun,pre]\n" +
             "The next hit app: [Adj] [Noun]\n" +
