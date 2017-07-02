@@ -17,7 +17,7 @@ public class OptionsHandler
         List<String> strings = new ArrayList<>();
         Scanner scanner;
 
-        if(f.exists()) try { scanner = new Scanner(new File(path)); } catch(IOException e) { scanner = new Scanner(defaultValues); }
+        if(f.exists()) try { scanner = new Scanner(f); } catch(IOException e) { scanner = new Scanner(defaultValues); }
         else { writeString(f, defaultValues); scanner = new Scanner(defaultValues); }
 
         while(scanner.hasNextLine())

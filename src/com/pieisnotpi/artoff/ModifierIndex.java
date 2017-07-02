@@ -24,19 +24,18 @@ public class ModifierIndex
         return start == 0 ? prefix + mod + prompt.substring(end) : prompt.substring(0, start) + prefix + mod + prompt.substring(end);
     }
 
-    private String capitalize(String toCapitalize)
+    private String capitalize(String string)
     {
-        String temp = toCapitalize;
         int i = 0;
         do
         {
-            temp = temp.substring(0, i) + Character.toUpperCase(temp.charAt(i)) + temp.substring(Integer.min(i + 1, temp.length() - 1));
-            int si = temp.indexOf(' ', i + 1) + 1, di = temp.indexOf('-', i + 1) + 1;
-            if(si == 0) i = di;
-            else if(di > 0) i = Integer.min(si, di);
-            else i = si;
+            string = string.substring(0, i) + Character.toUpperCase(string.charAt(i)) + string.substring(Integer.min(i + 1, string.length() - 1));
+            int si = i = string.indexOf(' ', i + 1) + 1, di = string.indexOf('-', i + 1) + 1;
+
+            if(i == 0) i = di;
+            else if(di != 0) i = Integer.min(si, di);
         }
-        while(i != 0 && i < temp.length() - 1);
-        return temp;
+        while(i != 0 && i < string.length() - 1);
+        return string;
     }
 }
